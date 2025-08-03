@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FoodieExpress</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #fffaf0;
+      color: #333;
+    }
+
+    header {
+      background: #ff4d4d;
+      padding: 15px 30px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      margin: 0 10px;
+      color: white;
+      text-decoration: none;
+    }
+
+    .hero {
+      padding: 60px 30px;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                  url('https://source.unsplash.com/800x600/?food,delivery') no-repeat center/cover;
+      text-align: center;
+      color: white;
+    }
+
+    .hero h2 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    .hero button {
+      padding: 12px 24px;
+      font-size: 1.1em;
+      background: #ff4d4d;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 40px 20px;
+      background-color: #f2f2f2;
+    }
+
+    .features div {
+      text-align: center;
+      max-width: 250px;
+      margin: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #ff4d4d;
+      color: white;
+    }
+
+    .form-popup {
+      display: none;
+      position: fixed;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      padding: 20px;
+      border: 2px solid #ff4d4d;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+    }
+
+    .form-popup form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-popup input {
+      margin: 10px 0;
+      padding: 8px;
+    }
+
+    .form-popup button {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    .form-popup button:hover {
+      background-color: #e63946;
+    }
+
+    @media (max-width: 768px) {
+      .features {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero h2 {
+        font-size: 2em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>FoodieExpress</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Menu</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Delicious Food Delivered Fast</h2>
+    <p>From your favorite local restaurants right to your door!</p>
+    <button onclick="openForm()">Order Now</button>
+  </section>
+
+  <section class="features">
+    <div>
+      <h3>🍕 Fresh Food</h3>
+      <p>Hot and fresh meals prepared with care.</p>
+    </div>
+    <div>
+      <h3>🚀 Fast Delivery</h3>
+      <p>We bring your food in 30 minutes or less.</p>
+    </div>
+    <div>
+      <h3>💸 Great Offers</h3>
+      <p>Daily deals and discounts you'll love.</p>
+    </div>
+  </section>
+
+  <!-- Pop-up form -->
+  <div class="form-popup" id="orderForm">
+    <form onsubmit="submitOrder(event)">
+      <h2>Place Your Order</h2>
+      <label>Name:</label><input type="text" required />
+      <label>Phone:</label><input type="tel" required />
+      <label>Your Food:</label><input type="text" required />
+      <button type="submit">Submit</button>
+      <button type="button" onclick="closeForm()">Close</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 FoodieExpress. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function openForm() {
+      document.getElementById('orderForm').style.display = 'block';
+    }
+
+    function closeForm() {
+      document.getElementById('orderForm').style.display = 'none';
+    }
+
+    function submitOrder(event) {
+      event.preventDefault();
+      alert("Thank you! Your order has been placed.");
+      closeForm();
+    }
+  </script>
+</body>
+</html>
